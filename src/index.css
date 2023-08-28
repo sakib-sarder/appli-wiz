@@ -1,3 +1,21 @@
+/* Logo Font */
+@import url("https://fonts.googleapis.com/css2?family=Kablammo&display=swap");
+/* Universal Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.logo {
+  font-family: "Kablammo", cursive;
+}
+
+/* Tailwind Custom Classes */
+.tour_container {
+  @apply px-4 md:px-16 lg:px-24;
+}
