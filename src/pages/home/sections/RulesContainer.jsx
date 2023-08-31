@@ -39,7 +39,7 @@ const RulesContainer = () => {
             </div>
 
             {/* Quiz start button  */}
-            <button className="bg-green-600 px-20 py-2 text-white rounded">
+            <button className="bg-green-600 px-20 py-2 text-white rounded hover:bg-green-800 duration-300">
                 Start Quiz
             </button>
         </section>
