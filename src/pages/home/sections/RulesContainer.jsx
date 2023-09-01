@@ -1,5 +1,37 @@
+import { useNavigate } from "react-router-dom";
+import Coundown from "./Coundown";
+import {useState,useEffect} from 'react'
+
 
 const RulesContainer = () => {
+    const [count, setCount] = useState(3);
+    const [isQuizStart, setIsQuizStart] = useState(false);
+    const navigate = useNavigate();
+
+
+
+    const handleQuizStart = ()=>{
+        setIsQuizStart(true);
+
+    }
+
+
+    useEffect(()=>{
+        if(isQuizStart && count > 0){
+            const time = setInterval(() => {
+                setCount(count - 1);
+
+                clearInterval(time)
+            }, 1000);
+        }
+    },[count, isQuizStart])
+
+    if(count === 0){
+        navigate('/quize')
+    }
+
+
+
     return (
         <section className="lg:w-9/12 md:w-[90%] w-[95%] mx-auto text-center">
             <h1 className="text-center my-8 text-xl">Welcome to Quiz Hero</h1>
@@ -39,9 +71,14 @@ const RulesContainer = () => {
             </div>
 
             {/* Quiz start button  */}
-            <button className="bg-green-600 px-20 py-2 text-white rounded">
+            <button onClick={handleQuizStart} className="bg-green-600 px-20 py-2 text-white rounded hover:bg-green-800 duration-300">
                 Start Quiz
             </button>
+
+            {
+                isQuizStart &&
+                <Coundown count={count}/>
+            }
         </section>
     );
 };

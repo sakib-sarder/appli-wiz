@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/home/Home";
 import Login from "../pages/auth/Login/Login";
 import Register from "../pages/auth/Register/Register";
+import QuizePage from "../pages/home/sections/QuizePage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/quize",
+        element: <QuizePage />,
       },
     ],
   },
