@@ -37,10 +37,10 @@ const Header = () => {
             <Link to="/" className="logo font-bol text-2xl">AppliWiz</Link>
           </div>
           {/* Search Bar */}
-          <form onSubmit={handleSearch} className="hidden lg:block">
+          <form onSubmit={handleSearch} className="hidden lg:block ">
             <input
               type="text"
-              className="py-[7px] w-96 text-sm px-2 rounded-l focus:outline-none text-black"
+              className="py-[7px] w-80 text-sm px-2 rounded-l focus:outline-none text-black"
               placeholder="Search"
             />
             <button
@@ -80,14 +80,14 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      {openMenu && (
-        // Extra Section for black shadow
+      {/* {openMenu && ( */}
+        {/* // Extra Section for black shadow */}
         <>
           <div
-            className="fixed z-10 top-0 left-0 w-full h-full bg-[#00000085] transition "
+            className={`fixed z-10 top-0 left-0 w-full h-full bg-[#00000085] transition ${openMenu ? "block" : "hidden"}`}
             onClick={() => setOpenMenu(!openMenu)}
           ></div>
-          <nav className="bg-black z-20 text-white w-1/2 md:w-1/3 lg:hidden fixed top-0 h-screen  transition-transform duration-700 ease-in-out">
+          <nav className={`${openMenu ? "left-0" : " -left-96"} bg-black z-20 text-white w-1/2 md:w-1/3 lg:hidden h-screen duration-700 absolute top-0`}>
             <div className="flex items-center justify-between px-2 pt-4">
               <span className="logo font-bold text-2xl">appliwiz</span>
               <motion.div
@@ -118,7 +118,7 @@ const Header = () => {
             </ul>
           </nav>
         </>
-      )}
+      {/* )} */}
     </>
   );
 };
